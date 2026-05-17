@@ -1,0 +1,10 @@
+# Secrets - never commit these
+credentials.json
+token.json
+
+# Fetched mail content (personal data)
+newsletters.json
+
+# Python
+__pycache__/
+*.pyc
