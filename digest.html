@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Daily Digest</title>
+<style>
+:root {
+  --accent: #2563eb;
+  --ink: #1f2937;
+  --ink-muted: #6b7280;
+  --bg: #ffffff;
+  --card-bg: #ffffff;
+  --border: #e5e7eb;
+  --chip-bg: #f3f4f6;
+  --muted-bg: #f9fafb;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+               "Helvetica Neue", Arial, "Apple SD Gothic Neo",
+               "Malgun Gothic", "Noto Sans KR", sans-serif;
+  color: var(--ink);
+  background: var(--bg);
+  line-height: 1.55;
+  font-size: 15px;
+  -webkit-font-smoothing: antialiased;
+}
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 48px 24px 64px;
+}
+header h1 {
+  margin: 0 0 6px;
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+header .date {
+  color: var(--ink-muted);
+  font-size: 14px;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 12px;
+  margin: 32px 0 48px;
+}
+.stat-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px;
+}
+.stat-card .label {
+  font-size: 11px;
+  color: var(--ink-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+.stat-card .value {
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.1;
+}
+.stat-card .sub {
+  font-size: 12px;
+  color: var(--ink-muted);
+  margin-top: 4px;
+}
+
+section.top > h2 {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--ink-muted);
+  margin: 0 0 16px;
+  font-weight: 700;
+}
+
+.cluster-card {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 18px;
+  background: var(--card-bg);
+}
+.cluster-header {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+}
+.rank {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--ink-muted);
+  min-width: 28px;
+  line-height: 1.2;
+}
+.topic {
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.4;
+  flex: 1;
+}
+.badges {
+  display: flex;
+  gap: 6px;
+  margin: 14px 0 0 42px;
+  flex-wrap: wrap;
+}
+.badge {
+  font-size: 11px;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+.badge.spread {
+  background: var(--accent);
+  color: white;
+}
+.badge.single {
+  background: transparent;
+  color: var(--ink-muted);
+  border: 1px solid var(--border);
+}
+.badge.items {
+  background: var(--chip-bg);
+  color: var(--ink);
+}
+.sources {
+  margin: 14px 0 0 42px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.source-chip {
+  font-size: 11px;
+  background: var(--chip-bg);
+  color: var(--ink);
+  padding: 4px 9px;
+  border-radius: 4px;
+  font-weight: 500;
+}
+.source-chip .origin {
+  color: var(--ink-muted);
+  font-weight: 700;
+  margin-right: 6px;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+.summary {
+  margin: 18px 0 0 42px;
+  font-size: 15px;
+  color: var(--ink);
+  line-height: 1.65;
+}
+
+.limitations {
+  background: var(--muted-bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+  color: var(--ink-muted);
+  margin-top: 36px;
+}
+.limitations h2 {
+  margin: 0 0 14px;
+  color: var(--ink);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  font-weight: 700;
+}
+.limitations ul {
+  margin: 0;
+  padding-left: 18px;
+}
+.limitations li {
+  margin-bottom: 10px;
+  font-size: 14px;
+  line-height: 1.6;
+}
+.limitations li:last-child { margin-bottom: 0; }
+.limitations strong { color: var(--ink); }
+
+footer {
+  text-align: center;
+  color: var(--ink-muted);
+  font-size: 12px;
+  margin-top: 32px;
+}
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+<h1>Daily Digest</h1>
+<div class="date">June 04, 2026</div>
+</header>
+<div class="stats">
+<div class="stat-card">
+<div class="label">Total items</div>
+<div class="value">94</div>
+<div class="sub">analyzed</div>
+</div>
+<div class="stat-card">
+<div class="label">Gmail</div>
+<div class="value">8</div>
+<div class="sub">newsletters</div>
+</div>
+<div class="stat-card">
+<div class="label">Telegram</div>
+<div class="value">86</div>
+<div class="sub">messages</div>
+</div>
+<div class="stat-card">
+<div class="label">Distinct sources</div>
+<div class="value">15</div>
+<div class="sub">channels + senders</div>
+</div>
+<div class="stat-card">
+<div class="label">Total clusters</div>
+<div class="value">84</div>
+<div class="sub">formed</div>
+</div>
+<div class="stat-card">
+<div class="label">Multi-source</div>
+<div class="value">3</div>
+<div class="sub">spread &ge; 2</div>
+</div>
+<div class="stat-card">
+<div class="label">Singletons</div>
+<div class="value">81</div>
+<div class="sub">spread = 1</div>
+</div>
+</div>
+<section class="top">
+<h2>Top 5 by cross-source spread</h2>
+<div class="cluster-card">
+<div class="cluster-header">
+<div class="rank">1.</div>
+<div class="topic">Memory / HBM super cycle bull case (H2 2026 outlook, Wall St. upgrades)</div>
+</div>
+<div class="badges">
+<span class="badge spread">Cross-source &middot; spread 2</span>
+<span class="badge items">4 items</span>
+</div>
+<div class="sources">
+<span class="source-chip"><span class="origin">telegram</span>루팡</span>
+<span class="source-chip"><span class="origin">telegram</span>IT의 신 이형수</span>
+</div>
+<div class="summary">Two channels (루팡, IT의 신 이형수) covered this. Samsung Securities published a &#x27;duration game&#x27; note raising Samsung Electronics&#x27; target to 500,000 won and SK Hynix&#x27;s to 3,500,000 won — their FY27 earnings estimate sits 21% above consensus, on conviction that DRAM bit growth above 22% (HBM 40%, server DRAM 25%) persists through FY28. Separately, Nanya Technology&#x27;s May revenue surged 730% YoY (a 7th consecutive monthly record) as major memory makers pivot capacity toward HBM/DDR5. SK Chairman Chey Tae-won also met TSMC Chairman C.C. Wei in Taiwan and the two agreed to deepen HBM and advanced-packaging cooperation.</div>
+</div>
+<div class="cluster-card">
+<div class="cluster-header">
+<div class="rank">2.</div>
+<div class="topic">Korean equity market boom (KOSPI/KOSDAQ rally, Goldman 12,000 target)</div>
+</div>
+<div class="badges">
+<span class="badge spread">Cross-source &middot; spread 2</span>
+<span class="badge items">2 items</span>
+</div>
+<div class="sources">
+<span class="source-chip"><span class="origin">telegram</span>제약/바이오/미용 원리버</span>
+<span class="source-chip"><span class="origin">telegram</span>텔레그램 코인 방,채널 - CEN</span>
+</div>
+<div class="summary">Two channels (제약/바이오/미용 원리버, 텔레그램 코인 방,채널 - CEN) covered this. KOSPI is up nearly 4x in 14 months, with the rally led by Samsung and SK Hynix — the two firms that together control roughly 80% of global AI-memory supply. A KOSDAQ technical-setup note flagged that the index now sits where the 0.382 Fibonacci retrace from the April high meets a long-term trendline from April 2025 — a classic strong-bounce zone, though that author also flagged personal skepticism about acting on it given a structural Korea-market bias.</div>
+</div>
+<div class="cluster-card">
+<div class="cluster-header">
+<div class="rank">3.</div>
+<div class="topic">Broadcom (AVGO) Q2 FY26 earnings call</div>
+</div>
+<div class="badges">
+<span class="badge spread">Cross-source &middot; spread 2</span>
+<span class="badge items">2 items</span>
+</div>
+<div class="sources">
+<span class="source-chip"><span class="origin">telegram</span>선진짱 주식공부방</span>
+<span class="source-chip"><span class="origin">telegram</span>루팡</span>
+</div>
+<div class="summary">Two channels (선진짱 주식공부방, 루팡) covered this. AI semiconductor revenue is now tracking $56B for FY26 (~+180% YoY) with the FY27 $100B+ guidance reaffirmed, and Q2 AI bookings hit $30B+ — a large bookings-to-current-shipment gap. CEO Hock Tan attributed that gap to lead-time lock-in by six large compute customers, with new milestones including a long-term Google TPU agreement and an incremental 5GW commitment from Anthropic starting FY27. SK Securities&#x27; note flagged networking contributing roughly 40% of AI semi revenue and 2H FY26 shipments expected to roughly double 1H.</div>
+</div>
+<div class="cluster-card">
+<div class="cluster-header">
+<div class="rank">4.</div>
+<div class="topic">Korean chip-equipment (소부장) rally and Samsung contract wins</div>
+</div>
+<div class="badges">
+<span class="badge single">Single-source &middot; low confidence</span>
+<span class="badge items">5 items</span>
+</div>
+<div class="sources">
+<span class="source-chip"><span class="origin">telegram</span>선진짱 주식공부방</span>
+</div>
+<div class="summary">Single source 선진짱 주식공부방 covered this. SK Securities and Samsung Securities both published bullish notes — SK forecasting WFE market growth from +5% in 2024 to +26% by 2028, and Samsung highlighting multiple semi-cap names (원익IPS, 유진테크, 테스 등) hitting upper-limit prices on the day. Two specific Samsung supplier contracts were disclosed in DART filings on the same morning: YEST (예스티) booked a 22.8B won deal (26.2% of revenue) and Excicon (엑시콘) booked 12.1B won (18.3% of revenue), both supplying Samsung Electronics&#x27; chip lines.</div>
+</div>
+<div class="cluster-card">
+<div class="cluster-header">
+<div class="rank">5.</div>
+<div class="topic">D&amp;D Pharmatech: Kiwoom briefing + co-founder stock option exercise</div>
+</div>
+<div class="badges">
+<span class="badge single">Single-source &middot; low confidence</span>
+<span class="badge items">2 items</span>
+</div>
+<div class="sources">
+<span class="source-chip"><span class="origin">telegram</span>제약/바이오/미용 원리버</span>
+</div>
+<div class="summary">Single source 제약/바이오/미용 원리버 covered this. Kiwoom Securities is hosting an institutional-only briefing where CEO Dr. Lee Seul-ki (typically US-based) will present Zabopegdutide clinical results and the next development steps. Separately, the co-founders exercised their stock options and locked the resulting shares under a long-term protection covenant through May 2027 — notable because US tax law triggers unrealized-gain tax on the exercise, making the long lockup a costly confidence signal.</div>
+</div>
+</section>
+<div class="limitations">
+<h2>Limitations</h2>
+<ul>
+<li>Total clusters in this run: <strong>84</strong>, of which <strong>81</strong> are spread=1 (covered by a single source). The hypothesis under test &mdash; cross-source spread = importance &mdash; is only meaningful for the small minority of multi-source clusters.</li>
+<li>When fewer than 5 multi-source clusters exist on a given day, lower-ranked slots fall back to single-source clusters and are marked as low-confidence.</li>
+<li>This digest uses Claude Code (manual trigger) for both clustering and per-cluster summarization. The pipeline is designed to swap in an API-based automated version (embedding-based clustering + LLM summarization calls) in the future.</li>
+</ul>
+</div>
+<footer>Generated 2026-06-04 11:54</footer>
+</div>
+</body>
+</html>

@@ -1,9 +1,21 @@
 # Secrets - never commit these
 credentials.json
 token.json
+telegram_credentials.json
+telegram_session.session
+telegram_session.session-journal
 
 # Fetched mail content (personal data)
 newsletters.json
+
+# Fetched Telegram messages (personal data)
+telegram_messages.json
+
+# Merged content (personal data)
+all_content.json
+
+# Clustering output (references personal content)
+clusters.json
 
 # Python
 __pycache__/
